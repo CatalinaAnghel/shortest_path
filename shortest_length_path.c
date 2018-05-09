@@ -67,4 +67,8 @@ void dijkstra(int *adjacency_matrix[], int *cost_matrix[], int no_vertices,int s
 }
 
 void shortest_path(int cost_matrix, int no_vetices){
+	int iterator_1;
+	int iterator­_2;
+	int iterator_3;
 	
+}
