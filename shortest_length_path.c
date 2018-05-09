@@ -70,5 +70,15 @@ void shortest_path(int cost_matrix, int no_vetices){
 	int iterator_1;
 	int iterator­_2;
 	int iterator_3;
+	int distance[no_vertices][no_vertices];
+	int predecessor[no_vertices];
+
+	/* Initialize the solution matrix same as input graph matrix. Or we can say the initial values of shortest distances are based on shortest paths considering no intermediate vertex. */
+	for(iterator_1 = 0; iterator_1 < no_vertices; iterator_1++){
+		for(iterator_2 = 0; iterator_2 < no_vertices; iterator_2++){
+			distance[iterator_1][iterator_2] = cost_matrix[iterator_1][iterator_2];
+		}
+	}
+	
 	
 }
