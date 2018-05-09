@@ -46,7 +46,7 @@ int main(){
     }
 
     dijkstra(adjacency_matrix, matrix, no_vertices, start_node, destination_node);
-    
+    Floyd_Warshall(cost_matrix, no_vertices); 
     free(matrix);
     free(adjacency_matrix);
     return 0;

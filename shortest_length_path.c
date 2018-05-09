@@ -66,12 +66,12 @@ void dijkstra(int *adjacency_matrix[], int *cost_matrix[], int no_vertices,int s
     }
 }
 
-void shortest_path(int cost_matrix, int no_vetices){
+void Floyd_Warshall(int cost_matrix, int no_vetices){
 	int iterator_1;
 	int iterator­_2;
 	int iterator_3;
 	int distance[no_vertices][no_vertices];
-	int predecessor[no_vertices];
+	int *predecessor = calloc(no_vertices, sizeof(int));
 
 	/* Initialize the solution matrix same as input graph matrix. Or we can say the initial values of shortest distances are based on shortest paths considering no intermediate vertex. */
 	for(iterator_1 = 0; iterator_1 < no_vertices; iterator_1++){
@@ -80,5 +80,23 @@ void shortest_path(int cost_matrix, int no_vetices){
 		}
 	}
 	
-	
+	/* Add all vertices one by one to the set of intermediate vertices.*/
+    for (iterator_3 = 0; iterator_3 < no_vertices; iterator_3++){
+        // Pick all vertices as source one by one
+        for (iterator_1 = start_node; iterator_1 < no_vertices; iterator_1++){
+            // Pick all vertices as destination for the
+            // above picked source
+            for (iterator_2 = 0; iterator_2 < no_vertices; iterator_2++){
+                // If vertex k is on the shortest path from
+                // i to j, then update the value of dist[i][j]
+                if (distance[iterator_1][iterator_3] + distance[iterator_3][iterator_2] < distance[iterator_1][iterator_2]){
+                    distance[iterator_1][iterator_2] = distance[iterator_1][iterator_3] + distance[iterator_3][iterator_2];
+                    predecessor[iterator_1][iterator_2] = predecessor[iterator_1][iterator_3];
+                }
+            }
+        }
+    }
+
+	//free the memory
+	free(predecessor);
 }
