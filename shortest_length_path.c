@@ -66,9 +66,9 @@ void dijkstra(int *adjacency_matrix[], int *cost_matrix[], int no_vertices,int s
     }
 }
 
-void Floyd_Warshall(int cost_matrix, int no_vetices){
+void Floyd_Warshall(int *cost_matrix[], int no_vertices, int start_node){
 	int iterator_1;
-	int iterator­_2;
+	int iterator_2;
 	int iterator_3;
 	int distance[no_vertices][no_vertices];
 	int *predecessor = calloc(no_vertices, sizeof(int));
@@ -91,7 +91,7 @@ void Floyd_Warshall(int cost_matrix, int no_vetices){
                 // i to j, then update the value of dist[i][j]
                 if (distance[iterator_1][iterator_3] + distance[iterator_3][iterator_2] < distance[iterator_1][iterator_2]){
                     distance[iterator_1][iterator_2] = distance[iterator_1][iterator_3] + distance[iterator_3][iterator_2];
-                    predecessor[iterator_1][iterator_2] = predecessor[iterator_1][iterator_3];
+                    predecessor[iterator_1] = predecessor[iterator_1];
                 }
             }
         }

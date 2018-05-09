@@ -15,12 +15,16 @@ int main(){
 
     time_t t;
 
-    srand((unsigned) time(&t));
     no_vertices = generate_number_of_vertices();
     printf("The number of vertices is: %d\n", no_vertices);
 
     if(no_vertices == 0){
 		printf("\nThe number of vertices is zero.");
+		return 1;
+    }
+
+    if(no_vertices == 1){
+		printf("\nThe number of vertices is 1 and it is impossible to find the minimum path.");
 		return 1;
     }
 
@@ -38,15 +42,22 @@ int main(){
 
     printf("\nThe random generated destination_node is: ");
     destination_node = generate_node(no_vertices);
-    printf("%d", destination_node);
-	
+    
+    redraw:
+    srand((unsigned) time(&t));
     if(start_node == destination_node){
-		printf("\nThe distance is zero because it generates the same node for the start vertice and for the destination vertice");
-		return 1;
+		/*printf("\nThe distance is zero because it generates the same node for the start vertice and for the destination vertice");*/
+		destination_node = destination_node + rand()%(no_vertices/2);
+		//return 1;
+		goto redraw;
     }
+    printf("%d", destination_node);
 
+    printf("\n========== The Dijksta's Algorithm ===========");
     dijkstra(adjacency_matrix, matrix, no_vertices, start_node, destination_node);
-    Floyd_Warshall(cost_matrix, no_vertices); 
+    printf("\n========== The Floyd-Warshall Algorithm ==========="); 
+    Floyd_Warshall(matrix, no_vertices, start_node);
+ 
     free(matrix);
     free(adjacency_matrix);
     return 0;
