@@ -56,7 +56,7 @@ int main(){
     printf("\n========== The Dijksta's Algorithm ===========");
     dijkstra(adjacency_matrix, matrix, no_vertices, start_node, destination_node);
     printf("\n========== The Floyd-Warshall Algorithm ==========="); 
-    Floyd_Warshall(matrix, no_vertices, start_node);
+    Floyd_Warshall(matrix, no_vertices, start_node, destination_node);
  
     free(matrix);
     free(adjacency_matrix);
