@@ -82,34 +82,31 @@ void Floyd_Warshall(int *cost_matrix[], int no_vertices, int start_node, int des
 		}
 	}
 	
-	/* Add all vertices one by one to the set of intermediate vertices.*/
-    for (iterator_3 = 0; iterator_3 < no_vertices; iterator_3++){
-        // Pick all vertices as source one by one
-        for (iterator_1 = start_node; iterator_1 < no_vertices; iterator_1++){
-            // Pick all vertices as destination for the
-            // above picked source
-            for (iterator_2 = 0; iterator_2 < no_vertices; iterator_2++){
-                // If vertex k is on the shortest path from
-                // i to j, then update the value of dist[i][j]
-		  for(iterator_4 = 0; iterator_4 < no_vertices; iterator_4++){
-                if (distance[iterator_1][iterator_3] + distance[iterator_3][iterator_2] < distance[iterator_1][iterator_2]){
-			    count[iterator_1][iterator_2] += 1;
-                    distance[iterator_1][iterator_2] = distance[iterator_1][iterator_3] + distance[iterator_3][iterator_2];
-                    predecessor[iterator_1][iterator_2][iterator_4] = iterator_3;
-                }
-				else{
-				predecessor[iterator_1][iterator_2][iterator_4] = iterator_2;
-				count[iterator_1][iterator_2] += 1;
-		}
-		}
-            }
-        }
-    }
+ 	//Add all vertices one by one to the set of intermediate vertices.
+	for (iterator_3 = 0; iterator_3 < no_vertices; iterator_3++){
+        	// Pick all vertices as source one by one
+        	for (iterator_1 = start_node; iterator_1 < no_vertices; iterator_1++){
+           		 // Pick all vertices as destination for the above picked source
+            		for (iterator_2 = 0; iterator_2 < no_vertices; iterator_2++){
+                		// If vertex k is on the shortest path from i to j, then update the value of dist[i][j]
+		 		 for(iterator_4 = 0; iterator_4 < no_vertices; iterator_4++){
+                			if (distance[iterator_1][iterator_3] + distance[iterator_3][iterator_2] < distance[iterator_1][iterator_2]){
+			    			count[iterator_1][iterator_2] += 1;
+                    				distance[iterator_1][iterator_2] = distance[iterator_1][iterator_3] + distance[iterator_3][iterator_2];
+                    				predecessor[iterator_1][iterator_2][iterator_4] = iterator_3;
+                			}else{
+						predecessor[iterator_1][iterator_2][iterator_4] = iterator_2;
+						count[iterator_1][iterator_2] += 1;
+					}
+				  }
+            		  }
+     		   }
+    	 }
 	// Print the shortest distance between the vertices 
-    printf("\nThe shortest path is:\n");
-    for(iterator_2 = 0; iterator_2 < count[start_node][destination_node]; iterator_2++){
-        printf(" %d ", predecessor[start_node][destination_node][iterator_2]);
+	printf("\nThe shortest path is:\n");
+    	for(iterator_2 = 0; iterator_2 < count[start_node][destination_node]; iterator_2++){
+        	printf(" %d ", predecessor[start_node][destination_node][iterator_2]);
 	}
-    printf("\n");
-    printf("\nThe distance is: %d", distance[start_node][destination_node]);
+    	printf("\n");
+	printf("\nThe distance is: %d", distance[start_node][destination_node]);
 }
