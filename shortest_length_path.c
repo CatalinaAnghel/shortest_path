@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include "shortest_length_path.h"
 #define inf 10000
 
@@ -66,14 +67,16 @@ void dijkstra(int *adjacency_matrix[], int *cost_matrix[], int no_vertices,int s
     }
 }
 
-void Floyd_Warshall(int *cost_matrix[], int no_vertices, int start_node){
+void Floyd_Warshall(int *cost_matrix[], int no_vertices, int start_node, int destination_node){
 	int iterator_1;
 	int iterator_2;
 	int iterator_3;
+	int iterator_4;
+	int count[no_vertices][no_vertices];
 	int distance[no_vertices][no_vertices];
-	int *predecessor = calloc(no_vertices, sizeof(int));
+	int predecessor[no_vertices][no_vertices][no_vertices];
 
-	/* Initialize the solution matrix same as input graph matrix. Or we can say the initial values of shortest distances are based on shortest paths considering no intermediate vertex. */
+	/* Initialize the solution matrix same as input graph matrix.*/
 	for(iterator_1 = 0; iterator_1 < no_vertices; iterator_1++){
 		for(iterator_2 = 0; iterator_2 < no_vertices; iterator_2++){
 			distance[iterator_1][iterator_2] = cost_matrix[iterator_1][iterator_2];
@@ -89,14 +92,25 @@ void Floyd_Warshall(int *cost_matrix[], int no_vertices, int start_node){
             for (iterator_2 = 0; iterator_2 < no_vertices; iterator_2++){
                 // If vertex k is on the shortest path from
                 // i to j, then update the value of dist[i][j]
+		  for(iterator_4 = 0; iterator_4 < no_vertices; iterator_4++){
                 if (distance[iterator_1][iterator_3] + distance[iterator_3][iterator_2] < distance[iterator_1][iterator_2]){
+			    count[iterator_1][iterator_2] += 1;
                     distance[iterator_1][iterator_2] = distance[iterator_1][iterator_3] + distance[iterator_3][iterator_2];
-                    predecessor[iterator_1] = predecessor[iterator_1];
+                    predecessor[iterator_1][iterator_2][iterator_4] = iterator_3;
                 }
+				else{
+				predecessor[iterator_1][iterator_2][iterator_4] = iterator_2;
+				count[iterator_1][iterator_2] += 1;
+		}
+		}
             }
         }
     }
-
-	//free the memory
-	free(predecessor);
+	// Print the shortest distance between the vertices 
+    printf("\nThe shortest path is:\n");
+    for(iterator_2 = 0; iterator_2 < count[start_node][destination_node]; iterator_2++){
+        printf(" %d ", predecessor[start_node][destination_node][iterator_2]);
+	}
+    printf("\n");
+    printf("\nThe distance is: %d", distance[start_node][destination_node]);
 }
