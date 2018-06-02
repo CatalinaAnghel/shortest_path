@@ -1,5 +1,4 @@
 #include <stdio.h>
-//#include "shortest_length_path.h"
 #include <stdlib.h>
 #include <string.h>
 #define inf 10000
