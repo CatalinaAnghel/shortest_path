@@ -10,7 +10,7 @@ int generate_number_of_vertices(){
 
     srand((unsigned) time(&t));
 
-    no_vertices = rand()%10;
+    no_vertices = rand()%100;
 
     return no_vertices;
 }
@@ -71,7 +71,6 @@ void build_cost_matrix(int *matrix[], int *adjacency_matrix[], int no_vertices){
         }
     }
 
-    //return matrix;
 }
 
 //A function that prints the adjacency matrix
