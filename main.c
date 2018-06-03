@@ -45,10 +45,9 @@ int main(){
     
     redraw:
     srand((unsigned) time(&t));
-    if((start_node == destination_node) || (destination_node > no_vertices)){
+    if((start_node == destination_node) || (destination_node > no_vertices)||(destination_node < 0)){
 		/*printf("\nThe distance is zero because it generates the same node for the start vertice and for the destination vertice");*/
 		destination_node = destination_node + rand()%(no_vertices/2);
-		//return 1;
 		goto redraw;
     }
     printf("%d", destination_node);

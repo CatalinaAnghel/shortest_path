@@ -1,10 +1,19 @@
+///\file matrix.c
+///\brief It is an implementation used to generate the adjacency matrix and the cost matrix.
+///
+///Created by Anghel Florina-Catalina on 6/5/2018
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
 #define inf 100000
+///\def #definr inf 100000
+///\brief Define the maximum number possible as 100000
 
 //This function generates randomly the number of vertices
 int generate_number_of_vertices(){
+    ///\fn int generate_number_of_vertices()
+    ///\brief Returns the random generated number of vertices
+    
     int no_vertices;
     time_t t;
 
@@ -17,6 +26,11 @@ int generate_number_of_vertices(){
 
 /*A function that generates a random number for a start/destination node*/
 int generate_node(int no_vertices){
+    ///\fn int generate_node(int no_vertices)
+    ///\brief Returns a random generated number
+    ///\param no_vertices integer
+    ///
+
     int no_node;
     time_t t;
 
@@ -29,6 +43,12 @@ int generate_node(int no_vertices){
 
 //This function generates the adjacency matrix
 void build_adjacency_matrix(int *adjacency_matrix[], int no_vertices){
+    ///\fn void build_adjacency_matrix(int *adjacency_matrix[], int no_vertices)
+    ///\brief It builds randomly the adjacency matrix, but the elements with the same index for raw and colomn will be equal with zero
+    ///\param *adjacency_matrix[] First integer
+    ///\param no_vertices Second integer
+    ///
+    ///It builds the adjacency matrix
     int iterator_1;
     int iterator_2;
 
@@ -46,12 +66,16 @@ void build_adjacency_matrix(int *adjacency_matrix[], int no_vertices){
 	     }
         }
     }
-
-    //return adjacency_matrix;
 }
 
 /*This function generates the cost matrix based on the adjacency matrix*/
 void build_cost_matrix(int *matrix[], int *adjacency_matrix[], int no_vertices){
+    ///\fn void build_cost_matrix(int *matrix[], int *adjacency_matrix[], int no_vertices)
+    ///\brief it builds the cost matrix based on the adjacency matrix and the number of vertices
+    ///\param *matrix[] First integer
+    ///\param *adjacency_matrix[] Second integer
+    ///\param no_vertices Third integer
+    ///
     int iterator_1;
     int iterator_2;
 
