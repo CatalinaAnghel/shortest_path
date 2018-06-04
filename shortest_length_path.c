@@ -1,7 +1,14 @@
+///\file shortest_length_path.c
+///\brief C library implementation for determination of the shortest path functions.
+///
+/// Created by Anghel Florina-Catalina on 31/05/15.
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#define inf 10000
+#define inf 100000
+///\def #define inf 100000
+///\brief Define the maximum number possible as 100000.
 
 struct g_node{
 	int info;
@@ -9,116 +16,149 @@ struct g_node{
 };
 
 void dijkstra(int *adjacency_matrix[], int *cost_matrix[], int no_vertices,int start_node, int destination_node){
-    int distance[no_vertices];
-    //to memorize the predecessor of the node
-    int predecessor[no_vertices];
-    //to mark the visited nodes
-    int visited[no_vertices];
-    //to count the number of visited nodes
-    int count;
-    int minimum_distance;
-    int next_node;
-    int iterator_1;
-    int iterator_2;
+    	///\fn void dijkstra(int *adjacency_matrix[], int *cost_matrix[], int no_vertices,int start_node, int destination_node)
+    	///\brief It determines the shortest length path and prints it.
+    	///\param adjacency_matrix First integer matrix
+    	///\param cost_matrix Second integer matrix
+    	///\param no_vertices Third integer
+    	///\param start_node Fourth integer
+    	///\param destination_node Fifth integer
+    	///
+    	///Implements two operations: determination and printing.
+    	int distance[no_vertices];
+    	//to memorize the predecessor of the node
+    	int predecessor[no_vertices];
+    	//to mark the visited nodes
+    	int visited[no_vertices];
+    	//to count the number of visited nodes
+    	int count;
+    	int minimum_distance;
+    	int next_node;
+    	int iterator_1;
+    	int iterator_2;
     
-    //put the cost in a vector
-    for(iterator_1 = 0; iterator_1 < no_vertices; iterator_1++){
-        distance[iterator_1] = cost_matrix[start_node][iterator_1];
-        predecessor[iterator_1] = start_node;
-        visited[iterator_1] = 0;
-    }
+    	//put the cost in a vector
+    	for(iterator_1 = 0; iterator_1 < no_vertices; iterator_1++){
+        	distance[iterator_1] = cost_matrix[start_node][iterator_1];
+        	predecessor[iterator_1] = start_node;
+        	visited[iterator_1] = 0;
+    	}
 
-    distance[start_node] = 0;
-    visited[start_node] = 1;
-    count = 1;
+    	distance[start_node] = 0;
+    	visited[start_node] = 1;
+    	count = 1;
 
-    while(count < no_vertices - 1){
-        minimum_distance = inf;
+    	while(count < no_vertices - 1){
+        	minimum_distance = inf;
 
-        //nextnode gives the node at minimum distance
-        for(iterator_1 = 0; iterator_1 < no_vertices; iterator_1++){
-            if((distance[iterator_1] < minimum_distance) && (!visited[iterator_1])){
-                minimum_distance = distance[iterator_1];
-                next_node=iterator_1;
-            }
-    	   }
+        	//nextnode gives the node at minimum distance
+        	for(iterator_1 = 0; iterator_1 < no_vertices; iterator_1++){
+            		if((distance[iterator_1] < minimum_distance) && (!visited[iterator_1])){
+                	minimum_distance = distance[iterator_1];
+                	next_node=iterator_1;
+            		}
+    	   	}
 
-     	   //check if a better path exists through nextnode
-        visited[next_node] = 1;
-        for(iterator_1 = 0; iterator_1 < no_vertices; iterator_1++){
-            if(!visited[iterator_1]){
-                if(minimum_distance + cost_matrix[next_node][iterator_1] < distance[iterator_1]){
-                    distance[iterator_1] = minimum_distance + cost_matrix[next_node][iterator_1];
-                    predecessor[iterator_1]=next_node;
-                }
-            }
-        }
-        count++;
-    }
+     	   	//check if a better path exists through nextnode
+        	visited[next_node] = 1;
+        	for(iterator_1 = 0; iterator_1 < no_vertices; iterator_1++){
+            		if(!visited[iterator_1]){
+                		if(minimum_distance + cost_matrix[next_node][iterator_1] < distance[iterator_1]){
+                    			distance[iterator_1] = minimum_distance + cost_matrix[next_node][iterator_1];
+                    			predecessor[iterator_1]=next_node;
+               			}
+            		}
+        	}
+        	count++;
+    	}
 
-    //print the path and distance
-    for(iterator_1 = 0; iterator_1 < no_vertices; iterator_1++){
-        if(iterator_1 != start_node){
-            if(iterator_1 == destination_node){
-                printf("\nThe distance between the source node and the node %d is %d ", iterator_1, distance[iterator_1]);
-                printf("\nThe path is: %d", iterator_1);
-                iterator_2 = iterator_1;
-                do{
-                    iterator_2 = predecessor[iterator_2];
-                    printf(" <- %d", iterator_2);
-                }while (iterator_2 != start_node);
-            }
-        }
-    }
+    	//print the path and distance
+    	for(iterator_1 = 0; iterator_1 < no_vertices; iterator_1++){
+        	if(iterator_1 != start_node){
+            		if(iterator_1 == destination_node){
+                		printf("\nThe distance between the source node and the node %d is %d ", iterator_1, distance[iterator_1]);
+                		printf("\nThe path is: %d", iterator_1);
+                		iterator_2 = iterator_1;
+                		do{
+                    			iterator_2 = predecessor[iterator_2];
+                    			printf(" <- %d", iterator_2);
+                		}while (iterator_2 != start_node);
+            		}
+        	}
+    	}
 }
 
 //This is a function used to print the path in Floyd-Warshall Algorithm
-void push_begining(struct g_node *head, int new_element_value){
-    struct g_node *new_element;
-    struct g_node *next_element;
+void push_beginning(struct g_node *head, int new_element_value){
+    	///\fn void push_beginning(struct g_node *head, int new_element_value)
+    	///\brief It pushs an element at the beginning of a stack.
+    	///\param head First pointer
+    	///\param new_element_value First integer
+    	///
+    	///Implements a very special operation: pushing at beginning of a stack.
 
-    next_element = head->next;
-    new_element = malloc(sizeof(struct g_node));
-    new_element->info = new_element_value;
-    new_element->next = head->next;
-    head->next = new_element;
+    	struct g_node *new_element;
+    	struct g_node *next_element;
+
+    	next_element = head->next;
+    	new_element = malloc(sizeof(struct g_node));
+    	new_element->info = new_element_value;
+    	new_element->next = head->next;
+    	head->next = new_element;
 }
 
 //This is a function used to build the path in Floyd-Warshall Algorithm
-int pop_begining_list(struct g_node *head){
-    struct g_node *deleted_element;
-    int aux;
+int pop_beginning_list(struct g_node *head){
+    	///\fn int pop_beginning_list(struct g_node *head)
+    	///\brief It pops an element from the beginning of a stack.
+    	///\param head First pointer
+    	///
+    	///Implements a very special operation: popping from beginning of a stack.
+    	struct g_node *deleted_element;
+    	int aux;
 
-    if (head->next != NULL) {
-        deleted_element = head->next;
-        aux = deleted_element->info;
-        head->next = deleted_element->next;
-        free(deleted_element);
-        return aux;
-    }else{
-        printf("\n The stack is empty");
-        return -1;
-    }
+    	if (head->next != NULL) {
+        	deleted_element = head->next;
+        	aux = deleted_element->info;
+        	head->next = deleted_element->next;
+        	free(deleted_element);
+        	return aux;
+   	}else{
+        	printf("\n The stack is empty");
+        	return -1;
+	}
 }
 
 int read_first_element_added(struct g_node *head){
-    //In a stack, the first element addded will be the last element printed
-    struct g_node *iterator = head;
-    while(iterator->next != NULL){
-        iterator = iterator->next;
-    }
+    	///\fn int read_first_element_added(struct g_node *head)
+    	///\brief It prints the first element added in a stack.
+    	///\param head First pointer
+	///
+	///Implements a very special operation: printing the first element added in a stack.
+	//In a stack, the first element addded will be the last element printed
+	struct g_node *iterator = head;
+	while(iterator->next != NULL){
+		iterator = iterator->next;
+	}
 
-    return iterator->info;
+	return iterator->info;
 }
 
 void Floyd_Warshall(int *cost_matrix[], int no_vertices, int start_node, int destination_node){
+	///\fn void Floyd_Warshall(int *cost_matrix[], int no_vertices, int start_node, int destination_node)
+	///\brief It determines and prints the shortest path
+	///\param cost_matrix First matrix of integers
+	///\param no_vertices First integer
+	///\param start_node Second integer
+	///\param destination_node Third integer
+	///
 	int iterator_1;
 	int iterator_2;
 	int iterator_3;
 	int iterator_4;
 	int aux;
 	int var;
-	char answear[4];
+	char answer[4];
 	int distance[no_vertices][no_vertices];
 	int path[no_vertices][no_vertices];
 	struct g_node *head_stack;
@@ -173,26 +213,26 @@ void Floyd_Warshall(int *cost_matrix[], int no_vertices, int start_node, int des
     	iterator_2 = destination_node;
     	printf("%d ->", start_node);
     	while(iterator_1 != destination_node && path[iterator_1][destination_node] != -1){
-        	push_begining(head_stack, path[iterator_1][destination_node]);
+        	push_beginning(head_stack, path[iterator_1][destination_node]);
         	iterator_2 = path[iterator_1][destination_node];
         	aux = iterator_2;
         	while(path[iterator_1][iterator_2] != -1){
-           		push_begining(head_stack, path[iterator_1][iterator_2]);
+           		push_beginning(head_stack, path[iterator_1][iterator_2]);
             		iterator_2 = path[iterator_1][iterator_2];
         	}
         	if(path[iterator_1][iterator_2] == -1){
             		iterator_1 = aux;
             		while(head_stack->next!=NULL){
-                		printf(" %d -> ", pop_begining_list(head_stack));
+                		printf(" %d -> ", pop_beginning_list(head_stack));
             		}
             		iterator_2 = destination_node;
         	}
     	}
     	printf(" %d", destination_node);
 	printf("\nDo you want to print the path matrix generated by The Floyd-Warshall Algorithm?");
-	printf("\nAnswear with Yes or No.\n");
-	scanf("%s", answear);
-	if(strcmp(answear, "Yes") == 0){
+	printf("\nAnswer with Yes or No.\n");
+	scanf("%s", answer);
+	if(strcmp(answer, "Yes") == 0){
 		for(iterator_1 = 0; iterator_1 < no_vertices; iterator_1++){
         		for(iterator_2 = 0; iterator_2< no_vertices; iterator_2++){
               			printf("%d  ", path[iterator_1][iterator_2]);

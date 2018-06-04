@@ -1,3 +1,8 @@
+///\file matrix.h
+///\brief C library for the generation of the graph.
+///
+///Created by Anghel Florina-Catalina on 06/04/18.
+
 #include <stdio.h>
 #include <stdlib.h>
 
