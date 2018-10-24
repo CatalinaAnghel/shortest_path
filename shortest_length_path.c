@@ -1,7 +1,7 @@
 ///\file shortest_length_path.c
 ///\brief C library implementation for determination of the shortest path functions.
 ///
-/// Created by Anghel Florina-Catalina on 31/05/15.
+/// Created by Anghel Florina-Catalina on 31/05/18.
 
 #include <stdio.h>
 #include <stdlib.h>

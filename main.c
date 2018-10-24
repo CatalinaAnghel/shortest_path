@@ -1,7 +1,7 @@
 ///\file main.c
 ///\brief It is an implementation used to call all of the functions like Dijkstra or Floyd-Warshall.
 ///
-///Created by Anghel Florina-Catalina on 6/5/2018
+///Created by Anghel Florina-Catalina on 6/5/2018.
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -66,5 +66,8 @@ int main(){
  
     	free(matrix);
     	free(adjacency_matrix);
+
+	system("PAUSE");
+
     	return 0;
 }
