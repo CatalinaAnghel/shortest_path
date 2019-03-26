@@ -36,7 +36,7 @@ void dijkstra(int *adjacency_matrix[], int *cost_matrix[], int no_vertices,int s
     	int next_node;
     	int iterator_1;
     	int iterator_2;
-    
+
     	//put the cost in a vector
     	for(iterator_1 = 0; iterator_1 < no_vertices; iterator_1++){
         	distance[iterator_1] = cost_matrix[start_node][iterator_1];
@@ -183,12 +183,12 @@ void Floyd_Warshall(int *cost_matrix[], int no_vertices, int start_node, int des
             		var = var + 0;
         	}else{
 			 var = 1;
-		}    
-	}	
+		}
+	}
     	if(var == 0){
         	printf("\nThe start vertex has no connection with another vertex");
         	exit(1);
-    	}	
+    	}
 
  	//Add all vertices one by one to the set of intermediate vertices.
 	for (iterator_3 = 0; iterator_3 < no_vertices; iterator_3++){
@@ -207,7 +207,7 @@ void Floyd_Warshall(int *cost_matrix[], int no_vertices, int start_node, int des
      		   }
     	 }
 
-	// Print the shortest distance between the vertices 
+	// Print the shortest distance between the vertices
 	printf("\nThe path between the start vertex and the destination vertex is: ");
     	iterator_1 = start_node;
     	iterator_2 = destination_node;
@@ -241,5 +241,15 @@ void Floyd_Warshall(int *cost_matrix[], int no_vertices, int start_node, int des
    		 }
 	}
 
-    	free(head_stack);
+    	deleteStack(head_stack);
+}
+
+void deleteStack(struct g_node *head) {
+	struct g_node *iterator = head;
+
+	while (iterator != NULL) {
+		iterator = iterator->next;
+	}
+	free(iterator);
+	free(head);
 }

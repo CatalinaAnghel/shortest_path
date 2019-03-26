@@ -13,4 +13,5 @@ void Floyd_Warshall(int *cost_matrix[], int no_vertices, int start_node, int des
 void push_beginning(struct g_node *head, int new_element_value);
 int pop_beginning_list(struct g_node * head);
 int read_first_element_added(struct g_node *head);
+void deleteStack(struct g_node *head);
 #endif // SHORTEST_LENGTH_PATH_H_INCLUDED
