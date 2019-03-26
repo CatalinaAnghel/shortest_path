@@ -13,6 +13,7 @@
 ///\brief Define the maximum number possible as 100000
 
 int main(){
+
     	///\fn int main()
     	///\brief This is the main function used to call all of the functions.
     	///
@@ -23,8 +24,11 @@ int main(){
 
     	time_t t;
 
+
+
     	no_vertices = generate_number_of_vertices();
     	printf("The number of vertices is: %d\n", no_vertices);
+
 
     	if(no_vertices == 0){
 		printf("\nThe number of vertices is zero.");
@@ -36,6 +40,7 @@ int main(){
 		return 1;
     	}
 
+
     	int *adjacency_matrix[no_vertices];
     	build_adjacency_matrix(adjacency_matrix, no_vertices);
     	print_matrix(adjacency_matrix, no_vertices);
@@ -43,6 +48,7 @@ int main(){
     	int *matrix[no_vertices];
     	build_cost_matrix(matrix, adjacency_matrix, no_vertices); 
     	print_cost_matrix(matrix, no_vertices);
+
 
     	printf("\nThe random generated start_node is: ");
     	start_node = generate_node(no_vertices);
@@ -70,4 +76,5 @@ int main(){
 	system("PAUSE");
 
     	return 0;
+
 }
