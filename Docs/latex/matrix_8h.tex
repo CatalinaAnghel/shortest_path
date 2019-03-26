@@ -1,0 +1,113 @@
+\hypertarget{matrix_8h}{}\section{matrix.\+h File Reference}
+\label{matrix_8h}\index{matrix.\+h@{matrix.\+h}}
+
+
+C library for the generation of the graph.  
+
+
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{matrix_8h_ad5927f3c42f52d6adeae99332f961489}{generate\+\_\+number\+\_\+of\+\_\+vertices}} ()
+\item 
+\mbox{\Hypertarget{matrix_8h_a620cf6667fdfb8538cfb8e8474b1c237}\label{matrix_8h_a620cf6667fdfb8538cfb8e8474b1c237}} 
+int {\bfseries generare\+\_\+node} (int no\+\_\+vertices)
+\item 
+void \mbox{\hyperlink{matrix_8h_a141b919c50d114d587153dd8ecf2601d}{build\+\_\+adjacency\+\_\+matrix}} (int $\ast$adjacency\+\_\+matrix\mbox{[}$\,$\mbox{]}, int no\+\_\+vertices)
+\item 
+void \mbox{\hyperlink{matrix_8h_a4b895c9b8a894aced28e128ffb383a55}{build\+\_\+cost\+\_\+matrix}} (int $\ast$matrix\mbox{[}$\,$\mbox{]}, int $\ast$adjacency\+\_\+matrix\mbox{[}$\,$\mbox{]}, int no\+\_\+vertices)
+\item 
+void \mbox{\hyperlink{matrix_8h_a85ab4b3cdb9a9436fc78d2cf9e146228}{print\+\_\+matrix}} (int $\ast$matrix\mbox{[}$\,$\mbox{]}, int no\+\_\+vertices)
+\item 
+void \mbox{\hyperlink{matrix_8h_a491ac4af5a09c023a992543b1ae33acf}{print\+\_\+cost\+\_\+matrix}} (int $\ast$matrix\mbox{[}$\,$\mbox{]}, int no\+\_\+vertices)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+C library for the generation of the graph. 
+
+Created by Anghel Florina-\/\+Catalina on 06/04/18. 
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{matrix_8h_a141b919c50d114d587153dd8ecf2601d}\label{matrix_8h_a141b919c50d114d587153dd8ecf2601d}} 
+\index{matrix.\+h@{matrix.\+h}!build\+\_\+adjacency\+\_\+matrix@{build\+\_\+adjacency\+\_\+matrix}}
+\index{build\+\_\+adjacency\+\_\+matrix@{build\+\_\+adjacency\+\_\+matrix}!matrix.\+h@{matrix.\+h}}
+\subsubsection{\texorpdfstring{build\+\_\+adjacency\+\_\+matrix()}{build\_adjacency\_matrix()}}
+{\footnotesize\ttfamily void build\+\_\+adjacency\+\_\+matrix (\begin{DoxyParamCaption}\item[{int $\ast$}]{adjacency\+\_\+matrix\mbox{[}$\,$\mbox{]},  }\item[{int}]{no\+\_\+vertices }\end{DoxyParamCaption})}
+
+It builds randomly the adjacency matrix, but the elements with the same index for raw and colomn will be equal with zero 
+\begin{DoxyParams}{Parameters}
+{\em $\ast$adjacency\+\_\+matrix\mbox{[}$\,$\mbox{]}} & First integer \\
+\hline
+{\em no\+\_\+vertices} & Second integer\\
+\hline
+\end{DoxyParams}
+It builds the adjacency matrix Implements a very special operation\+: the generation of the adjacency matrix 
+
+Definition at line 45 of file matrix.\+c.
+
+\mbox{\Hypertarget{matrix_8h_a4b895c9b8a894aced28e128ffb383a55}\label{matrix_8h_a4b895c9b8a894aced28e128ffb383a55}} 
+\index{matrix.\+h@{matrix.\+h}!build\+\_\+cost\+\_\+matrix@{build\+\_\+cost\+\_\+matrix}}
+\index{build\+\_\+cost\+\_\+matrix@{build\+\_\+cost\+\_\+matrix}!matrix.\+h@{matrix.\+h}}
+\subsubsection{\texorpdfstring{build\+\_\+cost\+\_\+matrix()}{build\_cost\_matrix()}}
+{\footnotesize\ttfamily void build\+\_\+cost\+\_\+matrix (\begin{DoxyParamCaption}\item[{int $\ast$}]{matrix\mbox{[}$\,$\mbox{]},  }\item[{int $\ast$}]{adjacency\+\_\+matrix\mbox{[}$\,$\mbox{]},  }\item[{int}]{no\+\_\+vertices }\end{DoxyParamCaption})}
+
+it builds the cost matrix based on the adjacency matrix and the number of vertices 
+\begin{DoxyParams}{Parameters}
+{\em $\ast$matrix\mbox{[}$\,$\mbox{]}} & First integer \\
+\hline
+{\em $\ast$adjacency\+\_\+matrix\mbox{[}$\,$\mbox{]}} & Second integer \\
+\hline
+{\em no\+\_\+vertices} & Third integer\\
+\hline
+\end{DoxyParams}
+Implements a very special operation\+: the generation of the cost matrix based on the adjacency matrix 
+
+Definition at line 74 of file matrix.\+c.
+
+\mbox{\Hypertarget{matrix_8h_ad5927f3c42f52d6adeae99332f961489}\label{matrix_8h_ad5927f3c42f52d6adeae99332f961489}} 
+\index{matrix.\+h@{matrix.\+h}!generate\+\_\+number\+\_\+of\+\_\+vertices@{generate\+\_\+number\+\_\+of\+\_\+vertices}}
+\index{generate\+\_\+number\+\_\+of\+\_\+vertices@{generate\+\_\+number\+\_\+of\+\_\+vertices}!matrix.\+h@{matrix.\+h}}
+\subsubsection{\texorpdfstring{generate\+\_\+number\+\_\+of\+\_\+vertices()}{generate\_number\_of\_vertices()}}
+{\footnotesize\ttfamily int generate\+\_\+number\+\_\+of\+\_\+vertices (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Returns the random generated number of vertices Implements a very special operation\+: the generation of the number of vertices 
+
+Definition at line 13 of file matrix.\+c.
+
+\mbox{\Hypertarget{matrix_8h_a491ac4af5a09c023a992543b1ae33acf}\label{matrix_8h_a491ac4af5a09c023a992543b1ae33acf}} 
+\index{matrix.\+h@{matrix.\+h}!print\+\_\+cost\+\_\+matrix@{print\+\_\+cost\+\_\+matrix}}
+\index{print\+\_\+cost\+\_\+matrix@{print\+\_\+cost\+\_\+matrix}!matrix.\+h@{matrix.\+h}}
+\subsubsection{\texorpdfstring{print\+\_\+cost\+\_\+matrix()}{print\_cost\_matrix()}}
+{\footnotesize\ttfamily void print\+\_\+cost\+\_\+matrix (\begin{DoxyParamCaption}\item[{int $\ast$}]{matrix\mbox{[}$\,$\mbox{]},  }\item[{int}]{no\+\_\+vertices }\end{DoxyParamCaption})}
+
+it prints the cost matrix 
+\begin{DoxyParams}{Parameters}
+{\em $\ast$matrix\mbox{[}$\,$\mbox{]}} & First integer \\
+\hline
+{\em no\+\_\+vertices} & Second integer\\
+\hline
+\end{DoxyParams}
+Implements a very special operation\+: it prints the cost matrix 
+
+Definition at line 128 of file matrix.\+c.
+
+\mbox{\Hypertarget{matrix_8h_a85ab4b3cdb9a9436fc78d2cf9e146228}\label{matrix_8h_a85ab4b3cdb9a9436fc78d2cf9e146228}} 
+\index{matrix.\+h@{matrix.\+h}!print\+\_\+matrix@{print\+\_\+matrix}}
+\index{print\+\_\+matrix@{print\+\_\+matrix}!matrix.\+h@{matrix.\+h}}
+\subsubsection{\texorpdfstring{print\+\_\+matrix()}{print\_matrix()}}
+{\footnotesize\ttfamily void print\+\_\+matrix (\begin{DoxyParamCaption}\item[{int $\ast$}]{matrix\mbox{[}$\,$\mbox{]},  }\item[{int}]{no\+\_\+vertices }\end{DoxyParamCaption})}
+
+it prints the adjacency matrix 
+\begin{DoxyParams}{Parameters}
+{\em $\ast$matrix\mbox{[}$\,$\mbox{]}} & First integer \\
+\hline
+{\em no\+\_\+vertices} & Second integer\\
+\hline
+\end{DoxyParams}
+Implements a very special operation\+: it prints the adjacency matrix 
+
+Definition at line 103 of file matrix.\+c.
+
