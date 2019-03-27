@@ -1,0 +1,121 @@
+\hypertarget{shortest__length__path_8h}{}\section{shortest\+\_\+length\+\_\+path.\+h File Reference}
+\label{shortest__length__path_8h}\index{shortest\+\_\+length\+\_\+path.\+h@{shortest\+\_\+length\+\_\+path.\+h}}
+
+
+C library for the shortest path determination.  
+
+
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{shortest__length__path_8h_a850fb31a5342dd44bcb9adc4e2665e55}{dijkstra}} (int $\ast$adjacency\+\_\+matrix\mbox{[}$\,$\mbox{]}, int $\ast$cost\+\_\+matrix\mbox{[}$\,$\mbox{]}, int no\+\_\+vertices, int start\+\_\+node, int destination\+\_\+node)
+\item 
+void \mbox{\hyperlink{shortest__length__path_8h_a5dea9fef37d86a740d86e2e8f9327eb3}{Floyd\+\_\+\+Warshall}} (int $\ast$cost\+\_\+matrix\mbox{[}$\,$\mbox{]}, int no\+\_\+vertices, int start\+\_\+node, int destination\+\_\+node)
+\item 
+void \mbox{\hyperlink{shortest__length__path_8h_a2683aa341ea8819be375329518df1bc4}{push\+\_\+beginning}} (struct \mbox{\hyperlink{structg__node}{g\+\_\+node}} $\ast$head, int new\+\_\+element\+\_\+value)
+\item 
+int \mbox{\hyperlink{shortest__length__path_8h_ad36301a6fae01f7d6675988bf081ecd2}{pop\+\_\+beginning\+\_\+list}} (struct \mbox{\hyperlink{structg__node}{g\+\_\+node}} $\ast$head)
+\item 
+int \mbox{\hyperlink{shortest__length__path_8h_a6ec5ae3ce3875e8117a4e0f247f44ffe}{read\+\_\+first\+\_\+element\+\_\+added}} (struct \mbox{\hyperlink{structg__node}{g\+\_\+node}} $\ast$head)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+C library for the shortest path determination. 
+
+Created by Anghel Florina-\/\+Catalina on 06/04/18. 
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{shortest__length__path_8h_a850fb31a5342dd44bcb9adc4e2665e55}\label{shortest__length__path_8h_a850fb31a5342dd44bcb9adc4e2665e55}} 
+\index{shortest\+\_\+length\+\_\+path.\+h@{shortest\+\_\+length\+\_\+path.\+h}!dijkstra@{dijkstra}}
+\index{dijkstra@{dijkstra}!shortest\+\_\+length\+\_\+path.\+h@{shortest\+\_\+length\+\_\+path.\+h}}
+\subsubsection{\texorpdfstring{dijkstra()}{dijkstra()}}
+{\footnotesize\ttfamily void dijkstra (\begin{DoxyParamCaption}\item[{int $\ast$}]{adjacency\+\_\+matrix\mbox{[}$\,$\mbox{]},  }\item[{int $\ast$}]{cost\+\_\+matrix\mbox{[}$\,$\mbox{]},  }\item[{int}]{no\+\_\+vertices,  }\item[{int}]{start\+\_\+node,  }\item[{int}]{destination\+\_\+node }\end{DoxyParamCaption})}
+
+It determines the shortest length path and prints it. 
+\begin{DoxyParams}{Parameters}
+{\em adjacency\+\_\+matrix} & First integer matrix \\
+\hline
+{\em cost\+\_\+matrix} & Second integer matrix \\
+\hline
+{\em no\+\_\+vertices} & Third integer \\
+\hline
+{\em start\+\_\+node} & Fourth integer \\
+\hline
+{\em destination\+\_\+node} & Fifth integer\\
+\hline
+\end{DoxyParams}
+Implements two operations\+: determination and printing. 
+
+Definition at line 18 of file shortest\+\_\+length\+\_\+path.\+c.
+
+\mbox{\Hypertarget{shortest__length__path_8h_a5dea9fef37d86a740d86e2e8f9327eb3}\label{shortest__length__path_8h_a5dea9fef37d86a740d86e2e8f9327eb3}} 
+\index{shortest\+\_\+length\+\_\+path.\+h@{shortest\+\_\+length\+\_\+path.\+h}!Floyd\+\_\+\+Warshall@{Floyd\+\_\+\+Warshall}}
+\index{Floyd\+\_\+\+Warshall@{Floyd\+\_\+\+Warshall}!shortest\+\_\+length\+\_\+path.\+h@{shortest\+\_\+length\+\_\+path.\+h}}
+\subsubsection{\texorpdfstring{Floyd\+\_\+\+Warshall()}{Floyd\_Warshall()}}
+{\footnotesize\ttfamily void Floyd\+\_\+\+Warshall (\begin{DoxyParamCaption}\item[{int $\ast$}]{cost\+\_\+matrix\mbox{[}$\,$\mbox{]},  }\item[{int}]{no\+\_\+vertices,  }\item[{int}]{start\+\_\+node,  }\item[{int}]{destination\+\_\+node }\end{DoxyParamCaption})}
+
+It determines and prints the shortest path 
+\begin{DoxyParams}{Parameters}
+{\em cost\+\_\+matrix} & First matrix of integers \\
+\hline
+{\em no\+\_\+vertices} & First integer \\
+\hline
+{\em start\+\_\+node} & Second integer \\
+\hline
+{\em destination\+\_\+node} & Third integer\\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 147 of file shortest\+\_\+length\+\_\+path.\+c.
+
+\mbox{\Hypertarget{shortest__length__path_8h_ad36301a6fae01f7d6675988bf081ecd2}\label{shortest__length__path_8h_ad36301a6fae01f7d6675988bf081ecd2}} 
+\index{shortest\+\_\+length\+\_\+path.\+h@{shortest\+\_\+length\+\_\+path.\+h}!pop\+\_\+beginning\+\_\+list@{pop\+\_\+beginning\+\_\+list}}
+\index{pop\+\_\+beginning\+\_\+list@{pop\+\_\+beginning\+\_\+list}!shortest\+\_\+length\+\_\+path.\+h@{shortest\+\_\+length\+\_\+path.\+h}}
+\subsubsection{\texorpdfstring{pop\+\_\+beginning\+\_\+list()}{pop\_beginning\_list()}}
+{\footnotesize\ttfamily int pop\+\_\+beginning\+\_\+list (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{structg__node}{g\+\_\+node}} $\ast$}]{head }\end{DoxyParamCaption})}
+
+It pops an element from the beginning of a stack. 
+\begin{DoxyParams}{Parameters}
+{\em head} & First pointer\\
+\hline
+\end{DoxyParams}
+Implements a very special operation\+: popping from beginning of a stack. 
+
+Definition at line 111 of file shortest\+\_\+length\+\_\+path.\+c.
+
+\mbox{\Hypertarget{shortest__length__path_8h_a2683aa341ea8819be375329518df1bc4}\label{shortest__length__path_8h_a2683aa341ea8819be375329518df1bc4}} 
+\index{shortest\+\_\+length\+\_\+path.\+h@{shortest\+\_\+length\+\_\+path.\+h}!push\+\_\+beginning@{push\+\_\+beginning}}
+\index{push\+\_\+beginning@{push\+\_\+beginning}!shortest\+\_\+length\+\_\+path.\+h@{shortest\+\_\+length\+\_\+path.\+h}}
+\subsubsection{\texorpdfstring{push\+\_\+beginning()}{push\_beginning()}}
+{\footnotesize\ttfamily void push\+\_\+beginning (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{structg__node}{g\+\_\+node}} $\ast$}]{head,  }\item[{int}]{new\+\_\+element\+\_\+value }\end{DoxyParamCaption})}
+
+It pushs an element at the beginning of a stack. 
+\begin{DoxyParams}{Parameters}
+{\em head} & First pointer \\
+\hline
+{\em new\+\_\+element\+\_\+value} & First integer\\
+\hline
+\end{DoxyParams}
+Implements a very special operation\+: pushing at beginning of a stack. 
+
+Definition at line 92 of file shortest\+\_\+length\+\_\+path.\+c.
+
+\mbox{\Hypertarget{shortest__length__path_8h_a6ec5ae3ce3875e8117a4e0f247f44ffe}\label{shortest__length__path_8h_a6ec5ae3ce3875e8117a4e0f247f44ffe}} 
+\index{shortest\+\_\+length\+\_\+path.\+h@{shortest\+\_\+length\+\_\+path.\+h}!read\+\_\+first\+\_\+element\+\_\+added@{read\+\_\+first\+\_\+element\+\_\+added}}
+\index{read\+\_\+first\+\_\+element\+\_\+added@{read\+\_\+first\+\_\+element\+\_\+added}!shortest\+\_\+length\+\_\+path.\+h@{shortest\+\_\+length\+\_\+path.\+h}}
+\subsubsection{\texorpdfstring{read\+\_\+first\+\_\+element\+\_\+added()}{read\_first\_element\_added()}}
+{\footnotesize\ttfamily int read\+\_\+first\+\_\+element\+\_\+added (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{structg__node}{g\+\_\+node}} $\ast$}]{head }\end{DoxyParamCaption})}
+
+It prints the first element added in a stack. 
+\begin{DoxyParams}{Parameters}
+{\em head} & First pointer \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 132 of file shortest\+\_\+length\+\_\+path.\+c.
+

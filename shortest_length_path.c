@@ -251,4 +251,5 @@ void deleteStack(struct g_node *head) {
         free(head);
         head = NULL;
     }
+
 }
