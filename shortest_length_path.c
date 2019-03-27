@@ -241,15 +241,15 @@ void Floyd_Warshall(int *cost_matrix[], int no_vertices, int start_node, int des
    		 }
 	}
 
-    	deleteStack(head_stack);
+    deleteStack(head_stack);
 }
 
 void deleteStack(struct g_node *head) {
-	struct g_node *iterator = head;
+    if(head->next != NULL){
+        deleteStack(head->next);
+    }else{
+        free(head);
+        head = NULL;
+    }
 
-	while (iterator != NULL) {
-		iterator = iterator->next;
-	}
-	free(iterator);
-	free(head);
 }
